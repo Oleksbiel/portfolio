@@ -1,0 +1,36 @@
+.footer{
+	&__list{
+		margin-bottom: 20px;
+	}
+	&__item{
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+		
+		margin-right: 10px;
+		&:last-child{
+			margin: 0;
+		}
+	}
+	&__link{
+		text-decoration: none;
+		display: block;
+		border: 1px solid grey;
+		transition: all .4s;
+		&:hover{
+			color: #fff;
+			transition: all .4s;
+			border-color: #fff;
+		}
+	}
+	&__icon{
+		line-height: 36px;
+		font-size: 18px;
+
+	}
+	&__copyright{
+		color: #fff;
+		font-size: 13px;
+		line-height: 20px;
+	}
+}

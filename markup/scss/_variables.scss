@@ -1,0 +1,92 @@
+//## Gray and brand colors
+$gray-base:   #efefef !default;
+$gray-darker: #a4a4a6 !default;
+$gray-dark:   #c6c6c6 !default;
+$gray:        #edeeef !default;
+
+$brand-color: #b7a172 !default;
+
+
+//## Settings for some of the most global styles.
+$body-bg:               #fff !default;
+$text-color:            #818286 !default;
+$link-color:            $text-color !default;
+$link-hover-color:      #fff !default;
+$link-hover-decoration: none !default;
+
+
+//## Typography
+$font-family-base:        'Raleway', sans-serif;
+$font-size-base:          16px;
+$line-height-base:        1.4;
+
+$headings-font-family:    'Raleway', sans-serif;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          #222 !default;
+
+$font-size-h1:            45px !default;
+$font-size-h2:            30px !default;
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default;
+$font-size-h4:            22px;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default;
+
+$margin-h1:               5px 0 !default;
+$margin-h2:               20px 0 !default;
+$margin-h3:               15px 0 !default;
+$margin-h4:               0px 0 !default;
+$margin-h5:               5px 0 !default;
+$margin-h6:               2px 0 !default;
+
+
+//## Buttons
+$btn-font-size:                  14px !default;
+$btn-font-weight:                normal !default;
+$btn-border-width:               1px !default;
+$btn-border-radius:              0 !default;
+$btn-padding-vertical:           10px !default;
+$btn-padding-horizontal:         20px !default;
+
+$btn-font-size-sm: 				 12px;
+$btn-padding-vertical-sm:        10px;
+$btn-padding-horizontal-sm:      15px;
+
+$btn-brand-color:                #fff !default;
+$btn-brand-bg:                   rgba(17, 17, 17, 0.8) !default;
+$btn-brand-border:               rgba(17, 17, 17, 0.8) !default;
+
+$btn-brand-color-hover:          #fff !default;
+$btn-brand-bg-hover:             #000 !default;
+$btn-brand-border-hover:         #000 !default;
+
+$btn-link-disabled-color:        #ccc !default;
+
+
+// ## Forms
+$input-bg:                       #fff !default;
+$input-bg-disabled:              #ccc !default;
+$input-color:                    $text-color !default;
+$input-border:                   #D8E1E4 !default;
+$input-border-radius:            0 !default;
+$input-border-focus:             #66afe9 !default;
+$input-color-placeholder:        #999 !default;
+
+$input-height-base:              35px  !default;
+$input-font-size:                13px !default;
+$input-line-height:              1.4 !default;
+$input-border-width:             1px !default;
+$input-line-height-computed:     floor($input-font-size * $input-line-height) !default;
+
+$input-padding:                  ($input-height-base - $input-line-height-computed - $input-border-width) / 2 !default;
+$input-padding-vertical:         $input-padding !default;
+$input-padding-horizontal:       10px !default;
+
+$form-group-margin-bottom:       15px !default;
+$cursor-disabled:                not-allowed !default;
+
+
+//////// Icons Path
+
+$icomoon-font-path: "../fonts" ;
+

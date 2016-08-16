@@ -1,0 +1,49 @@
+@import "variables";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$icomoon-font-path}/icomoon.eot?44nvkc');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?44nvkc#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?44nvkc') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?44nvkc') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?44nvkc#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-vk {
+  &:before {
+    content: $icon-vk;
+  }
+}
+.icon-email {
+  &:before {
+    content: $icon-email;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-github {
+  &:before {
+    content: $icon-github;
+  }
+}
+
