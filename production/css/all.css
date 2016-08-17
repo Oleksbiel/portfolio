@@ -1511,10 +1511,9 @@ textarea:focus {
   margin-bottom: 15px;
   width: 100%;
   background: #eee;
-  height: 35px;
-  border-radius: 3px;
   -webkit-transition: 0.4s linear;
-  transition: 0.4s linear; }
+  transition: 0.4s linear;
+  padding-left: 110px; }
 
 .skills__title {
   position: absolute;
@@ -1529,19 +1528,45 @@ textarea:focus {
     display: block;
     background: rgba(0, 0, 0, 0.1);
     padding: 0 20px;
-    height: 35px;
     line-height: 35px; }
+  .skills__title--html {
+    background: #d35400; }
+  .skills__title--css {
+    background: #2980b9; }
+  .skills__title--jquery {
+    background: #2c3e50; }
+  .skills__title--js {
+    background: #ecd120; }
+  .skills__title--bootstrap {
+    background: #34264a; }
+  .skills__title--photoshop {
+    background: #124e8c; }
+  .skills__title--sass {
+    background: #bf4080; }
 
 .skills__bar {
   height: 35px;
-  width: 0px;
-  background: #6adcfa; }
-  .skills__bar-percent {
-    position: absolute;
-    right: 10px;
-    top: 0;
-    font-size: 11px;
-    height: 35px;
-    line-height: 35px;
-    color: #ffffff;
-    color: rgba(0, 0, 0, 0.4); }
+  width: 0px; }
+  .skills__bar--html {
+    background: #e67e22; }
+  .skills__bar--css {
+    background: #3498db; }
+  .skills__bar--jquery {
+    background: #2c3e50; }
+  .skills__bar--js {
+    background: #F0DB4F; }
+  .skills__bar--bootstrap {
+    background: #4B376C; }
+  .skills__bar--photoshop {
+    background: #4288d0; }
+  .skills__bar--sass {
+    background: #CC6699; }
+
+.skills__bar-percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 11px;
+  line-height: 35px;
+  color: #ffffff;
+  color: rgba(0, 0, 0, 0.4); }

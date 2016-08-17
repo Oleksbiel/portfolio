@@ -5,9 +5,8 @@
         margin-bottom: 15px;
         width: 100%;
         background: #eee;
-        height: 35px;
-        border-radius: 3px;
         transition: 0.4s linear;
+        padding-left: 110px;
     }
     &__title {
         position: absolute;
@@ -22,23 +21,63 @@
             display: block;
             background: rgba(0, 0, 0, 0.1);
             padding: 0 20px;
-            height: 35px;
             line-height: 35px;
+        }
+        &--html {
+            background: #d35400;
+        }
+        &--css{
+        	background: #2980b9;
+        }
+        &--jquery{
+        	background: #2c3e50;
+        }
+        &--js{
+        	background: darken(#F0DB4F,10%);
+        }
+        &--bootstrap{
+        	background: darken(#4B376C,10%);
+        }
+        &--photoshop{
+        	background: #124e8c;
+        }
+        &--sass{
+        	background: darken(#CC6699,10%);
         }
     }
     &__bar {
         height: 35px;
         width: 0px;
-        background: #6adcfa;
-        &-percent {
-            position: absolute;
-            right: 10px;
-            top: 0;
-            font-size: 11px;
-            height: 35px;
-            line-height: 35px;
-            color: #ffffff;
-            color: rgba(0, 0, 0, 0.4);
+        &--html{
+        	background: #e67e22;
         }
+        &--css{
+        	background: #3498db;
+        }
+        &--jquery{
+        	background: #2c3e50;
+        }
+        &--js{
+        	background: #F0DB4F;
+        }
+        &--bootstrap{
+        	background: #4B376C;
+        }
+        &--photoshop{
+        	background: #4288d0;
+        }
+        &--sass{
+        	background: #CC6699;
+        }
+
+    }
+    &__bar-percent {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 11px;
+        line-height: 35px;
+        color: #ffffff;
+        color: rgba(0, 0, 0, 0.4);
     }
 }
