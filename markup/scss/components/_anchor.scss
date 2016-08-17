@@ -1,0 +1,65 @@
+.anchor {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-left: -15px;
+    display: block;
+    z-index: 10;
+    text-align: center;
+    cursor: pointer;
+    &__icon {
+        color: #fff;
+        font-size: 20px;
+        position: absolute;
+        animation: mymove 1.5s infinite;
+        transform: translateX(-50%);
+        @keyframes mymove {
+            from {
+                top: 20%;
+                opacity: 1
+            }
+            to {
+                top: 50%;
+                opacity: 1;
+            }
+            to {
+                top: 80%;
+                opacity: 0;
+            }
+        }
+    }
+    &--scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        &__link {
+            background-color: rgba(135, 135, 135, 0.5);
+            display: block;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            color: #fff;
+            font-size: 15px;
+            line-height: 30px;
+            text-decoration: none;
+            transition: all .5s;
+            &:hover{
+				background: rgba(235, 235, 235, 0.8);
+				transition: all .5s;
+            }
+            &:hover .anchor--scroll-top__icon{
+				color: #F05F40;
+				transition: all .5s;
+            }
+        }
+        &__icon {
+            line-height: 35px;
+            color: #fff;
+            transition: all .5s;
+        }
+    }
+}

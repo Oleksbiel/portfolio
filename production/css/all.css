@@ -1158,8 +1158,8 @@ textarea:focus {
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?ajgx4o");
-  src: url("../fonts/icomoon.eot?ajgx4o#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?ajgx4o") format("truetype"), url("../fonts/icomoon.woff?ajgx4o") format("woff"), url("../fonts/icomoon.svg?ajgx4o#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?vpucik");
+  src: url("../fonts/icomoon.eot?vpucik#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?vpucik") format("truetype"), url("../fonts/icomoon.woff?vpucik") format("woff"), url("../fonts/icomoon.svg?vpucik#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -1175,6 +1175,9 @@ textarea:focus {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-chevron-up:before {
+  content: ""; }
 
 .icon-chevron-down:before {
   content: ""; }
@@ -1273,7 +1276,7 @@ textarea:focus {
   -webkit-transition: all .5s;
   transition: all .5s; }
   .header__link:hover {
-    color: #fff;
+    color: #F05F40;
     -webkit-transition: all .5s;
     transition: all .5s; }
 
@@ -1386,7 +1389,7 @@ textarea:focus {
   height: 200px;
   border-radius: 50%; }
 
-.ancher {
+.anchor {
   position: absolute;
   left: 50%;
   bottom: 40px;
@@ -1399,7 +1402,7 @@ textarea:focus {
   z-index: 10;
   text-align: center;
   cursor: pointer; }
-  .ancher__icon {
+  .anchor__icon {
     color: #fff;
     font-size: 20px;
     position: absolute;
@@ -1429,3 +1432,32 @@ textarea:focus {
   to {
     top: 80%;
     opacity: 0; } }
+  .anchor--scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; }
+    .anchor--scroll-top__link {
+      background-color: rgba(135, 135, 135, 0.5);
+      display: block;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      color: #fff;
+      font-size: 15px;
+      line-height: 30px;
+      text-decoration: none;
+      -webkit-transition: all .5s;
+      transition: all .5s; }
+      .anchor--scroll-top__link:hover {
+        background: rgba(235, 235, 235, 0.8);
+        -webkit-transition: all .5s;
+        transition: all .5s; }
+      .anchor--scroll-top__link:hover .anchor--scroll-top__icon {
+        color: #F05F40;
+        -webkit-transition: all .5s;
+        transition: all .5s; }
+    .anchor--scroll-top__icon {
+      line-height: 35px;
+      color: #fff;
+      -webkit-transition: all .5s;
+      transition: all .5s; }
