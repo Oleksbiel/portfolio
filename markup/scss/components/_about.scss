@@ -4,4 +4,15 @@
 		height: 200px;
 		border-radius: 50%;
 	}
+	&__title{
+		margin-top: 0;
+	}
+	&__description{
+		line-height: 25px;
+		margin-bottom: 40px;
+	}
+	&__contact{
+		display: block;
+		margin-bottom: 15px;
+	}
 }

@@ -92,7 +92,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 22px;
-  margin: 15px 0; }
+  margin: 20px 0; }
 
 h4, .h4 {
   font-size: 22px;
@@ -1388,6 +1388,17 @@ textarea:focus {
   width: 200px;
   height: 200px;
   border-radius: 50%; }
+
+.about__title {
+  margin-top: 0; }
+
+.about__description {
+  line-height: 25px;
+  margin-bottom: 40px; }
+
+.about__contact {
+  display: block;
+  margin-bottom: 15px; }
 
 .anchor {
   position: absolute;
