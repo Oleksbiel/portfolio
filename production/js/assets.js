@@ -3,22 +3,26 @@ $('.portfolio__img').responsiveEqualHeightGrid();
 function HeaderListScroll(list) {
 	if (!list) return;
 	this.list = list;
-	this.list.addEventListener("click", this.computeProps);
+	this.scrollDone = true;
+	this.scrollTime = 3;
+	this.list.addEventListener("click", this.computeProps.bind(this));
 };
 
 HeaderListScroll.prototype.computeProps = function() {
+	event.preventDefault();
 	if (event.target.tagName != "A") return;
+	if (!this.scrollDone) return;
+	this.scrollDone = false;
 	var allBlocks = document.querySelectorAll(".block"),
 		position;
-	console.log(event.target);
-	event.preventDefault();
 	for (var i = 0; i < allBlocks.length; i++) {
 		if (allBlocks[i].dataset.name == event.target.innerHTML) {
 			position = getPosition(allBlocks[i]);
-			HeaderListScroll.prototype.scrollingTo(position.y);
+			this.scrollingTo(position.y);
+			this.undoneScrollProtection(position.y);
+			return;
 		};
 	};
-	console.log(event.target);
 };
 
 HeaderListScroll.prototype.scrollingTo = function(destination) {
@@ -29,12 +33,20 @@ HeaderListScroll.prototype.scrollingTo = function(destination) {
 	};
 	step = (destination > 0) ? 5 : -5;
 	if (destination == 0) return;
-	console.log(destination);
 	setTimeout(function() {
 		window.scrollBy(0, step);
 		destination -= step;
 		$this.scrollingTo(destination);
-	}, 3);
+	}, $this.scrollTime);
+};
+
+HeaderListScroll.prototype.undoneScrollProtection = function(position) {
+	var $this = this,
+		time = (position / 5 * $this.scrollTime * 1.25);
+	time = (time > 0) ? time : -time;
+	setTimeout(function() {
+		$this.scrollDone = true;
+	}, time);
 };
 
 new HeaderListScroll(document.querySelector(".header__list"));
