@@ -1,26 +1,21 @@
 $('.portfolio__img').responsiveEqualHeightGrid();
 
 function HeaderListScroll(list) {
-	var $this = this;
 	if (!list) return;
 	this.list = list;
-	this.properties = {
-		"Home": 0,
-		"About Me": 600,
-		"Skills": "",
-		"My Works": "",
-		"Contact": "" 
-	};
-	this.list.addEventListener("click", function() {$this.computeProps($this.properties)});
+	this.list.addEventListener("click", this.computeProps);
 };
 
-HeaderListScroll.prototype.computeProps = function(properties) {
+HeaderListScroll.prototype.computeProps = function() {
+	if (event.target.tagName != "A") return;
+	var allBlocks = document.querySelectorAll(".block"),
+		position;
 	console.log(event.target);
 	event.preventDefault();
-	if (event.target.tagName != "A") return;
-	for (i in properties) {
-		if (event.target.innerHTML == i) {
-			this.scrollingTo(properties[i]);
+	for (var i = 0; i < allBlocks.length; i++) {
+		if (allBlocks[i].dataset.name == event.target.innerHTML) {
+			position = getPosition(allBlocks[i]);
+			HeaderListScroll.prototype.scrollingTo(position.y);
 		};
 	};
 	console.log(event.target);
@@ -28,23 +23,21 @@ HeaderListScroll.prototype.computeProps = function(properties) {
 
 HeaderListScroll.prototype.scrollingTo = function(destination) {
 	var $this = this,
-		diff = destination - window.pageYOffset,
 		step;
-	if (diff % 5 != 0) {
-		diff = diff - (diff % 5);
+	if (destination % 5 != 0) {
+		destination = destination - (destination % 5);
 	};
-	step = (diff > 0) ? 5 : -5;
-	if (diff == 0) return;
-	console.log(diff);
+	step = (destination > 0) ? 5 : -5;
+	if (destination == 0) return;
+	console.log(destination);
 	setTimeout(function() {
 		window.scrollBy(0, step);
+		destination -= step;
 		$this.scrollingTo(destination);
-	}, 4);
+	}, 3);
 };
 
 new HeaderListScroll(document.querySelector(".header__list"));
-
-
 
 
 // Helper function to get an element's exact position
