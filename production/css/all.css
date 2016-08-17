@@ -1478,7 +1478,8 @@ textarea:focus {
   .anchor--scroll-top {
     position: fixed;
     bottom: 30px;
-    right: 30px; }
+    right: 30px;
+    display: none; }
     .anchor--scroll-top__link {
       background-color: rgba(135, 135, 135, 0.7);
       display: block;
