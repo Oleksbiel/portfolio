@@ -1,0 +1,11 @@
+.asd {
+  background: red;
+  color: grey;
+  border: 1px;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  border-radius: 2px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  text-indent: asd; }
