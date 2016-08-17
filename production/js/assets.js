@@ -82,3 +82,13 @@ function updatePosition() {
   // add your code to update the position when your browser
   // is resized or scrolled
 }
+
+// Progress Bar
+
+jQuery(document).ready(function(){
+	jQuery('.skills__row').each(function(){
+		jQuery(this).find('.skills__bar').animate({
+			width:jQuery(this).attr('data-percent')
+		},3000);
+	});
+});
