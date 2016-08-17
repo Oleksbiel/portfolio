@@ -15,4 +15,23 @@
 		display: block;
 		margin-bottom: 15px;
 	}
+	&__email{
+		color: #F05F40;
+		transition: all .5s;
+		&:hover{
+			text-decoration: underline;
+			transition: all .5s;
+		}
+	}
+	&__icon{
+		color: $text-color;
+		padding-right: 15px;
+		text-decoration: none;
+		&:hover{
+			text-decoration: none;
+		}
+		&--white{
+			color: #fff;
+		}
+	}
 }
