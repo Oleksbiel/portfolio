@@ -1,11 +1,13 @@
 $('.portfolio__img').responsiveEqualHeightGrid();
 
-function HeaderListScroll(list) {
-	if (!list) return;
-	this.list = list;
+// Start HeaderListScroll
+
+function HeaderListScroll(obj) {
+	if (!obj) return;
+	this.obj = obj;
 	this.scrollDone = true;
 	this.scrollTime = 3;
-	this.list.addEventListener("click", this.computeProps.bind(this));
+	this.obj.addEventListener("click", this.computeProps.bind(this));
 };
 
 HeaderListScroll.prototype.computeProps = function() {
@@ -51,6 +53,64 @@ HeaderListScroll.prototype.undoneScrollProtection = function(position) {
 
 new HeaderListScroll(document.querySelector(".header__list"));
 
+//End HeaderListScroll
+//Start AnchorScroll
+
+function AnchorScroll(obj) {
+	if (!obj) return;
+	this.obj = obj;
+	this.scrollTime = 5;
+	this.obj.addEventListener("click", this.computeProps.bind(this));
+};
+
+AnchorScroll.prototype = new HeaderListScroll;
+
+AnchorScroll.prototype.computeProps = function() {
+	var allBlocks = document.querySelectorAll(".block"),
+		position;
+	for (var i = 0; i < allBlocks.length; i++) {
+		if (allBlocks[i].dataset.name == "About Me") {
+			position = getPosition(allBlocks[i]);
+			this.scrollingTo(position.y);
+			return;
+		};
+	};
+};
+
+new AnchorScroll(document.querySelector(".anchor"));
+
+//End AnchorScroll
+//Start AnchorTopScroll
+
+function AnchorTopScroll(obj) {
+	if (!obj) return;
+	this.obj = obj;
+	this.obj.addEventListener("click", this.scrollToTop.bind(this));
+	window.addEventListener("scroll", this.makeVisible.bind(this));
+};
+
+AnchorTopScroll.prototype.scrollToTop = function() {
+	window.scrollTo(0, 0);
+};
+
+AnchorTopScroll.prototype.makeVisible = function() {
+	var allBlocks = document.querySelectorAll(".block"),
+		position;
+	for (var i = 0; i < allBlocks.length; i++) {
+		if (allBlocks[i].dataset.name == "About Me") {
+			position = getPosition(allBlocks[i]).y;
+		};
+	};
+	if (position <= 5) {
+		this.obj.style.display = "inline-block";
+	} else {
+		this.obj.style.display = "none";
+	};
+};
+
+new AnchorTopScroll(document.querySelector(".anchor--scroll-top"));
+
+//End AnchorTopScroll
 
 // Helper function to get an element's exact position
 function getPosition(el) {
