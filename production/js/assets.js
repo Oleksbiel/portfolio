@@ -1,33 +1,32 @@
 $('.portfolio__img').responsiveEqualHeightGrid();
 
-// Start HeaderListScroll
+// Start PageScroll MainConstructor
 
-function HeaderListScroll(obj) {
+function PageScroll(obj, point, time) {
 	if (!obj) return;
 	this.obj = obj;
-	this.scrollDone = true;
-	this.scrollTime = 3;
-	this.obj.addEventListener("click", this.computeProps.bind(this));
+	this.point = point;
+	this.scrollTime = time;
+	this.obj.addEventListener("click", this.callComputeProps.bind(this));
 };
 
-HeaderListScroll.prototype.computeProps = function() {
+PageScroll.prototype.callComputeProps = function() {
 	event.preventDefault();
-	if (event.target.tagName != "A") return;
-	if (!this.scrollDone) return;
-	this.scrollDone = false;
+	this.scrollingTo(this.computeProps(this.point));
+};
+
+PageScroll.prototype.computeProps = function(point) {
 	var allBlocks = document.querySelectorAll(".block"),
 		position;
 	for (var i = 0; i < allBlocks.length; i++) {
-		if (allBlocks[i].dataset.name == event.target.innerHTML) {
+		if (allBlocks[i].dataset.name == point) {
 			position = getPosition(allBlocks[i]);
-			this.scrollingTo(position.y);
-			this.undoneScrollProtection(position.y);
-			return;
 		};
 	};
+	return position.y;
 };
 
-HeaderListScroll.prototype.scrollingTo = function(destination) {
+PageScroll.prototype.scrollingTo = function(destination) {
 	var $this = this,
 		step;
 	if (destination % 5 != 0) {
@@ -42,6 +41,35 @@ HeaderListScroll.prototype.scrollingTo = function(destination) {
 	}, $this.scrollTime);
 };
 
+// End PageScroll MainConstructor
+
+// Start AnchorScroll --> About Me 
+new PageScroll(document.querySelector(".anchor"), "About Me", 3);
+// End AnchorScroll --> About Me 
+
+// Start HeaderListScroll
+
+function HeaderListScroll(obj, time) {
+	if (!obj) return;
+	this.obj = obj;
+	this.scrollTime = time;
+	this.scrollDone = true;
+	this.obj.addEventListener("click", this.callComputeProps.bind(this));
+};
+
+HeaderListScroll.prototype = new PageScroll; //inherit from MainConstructor
+
+HeaderListScroll.prototype.callComputeProps = function() {
+	var point;
+	event.preventDefault();
+	if (event.target.tagName != "A") return;
+	if (!this.scrollDone) return;
+	this.scrollDone = false;
+	point = this.computeProps(event.target.innerHTML);
+	this.scrollingTo(point);
+	this.undoneScrollProtection(point);
+};
+
 HeaderListScroll.prototype.undoneScrollProtection = function(position) {
 	var $this = this,
 		time = (position / 5 * $this.scrollTime * 1.25);
@@ -51,66 +79,36 @@ HeaderListScroll.prototype.undoneScrollProtection = function(position) {
 	}, time);
 };
 
-new HeaderListScroll(document.querySelector(".header__list"));
+new HeaderListScroll(document.querySelector(".header__list"), 3);
 
-//End HeaderListScroll
-//Start AnchorScroll
+// End HeaderListScroll
 
-function AnchorScroll(obj) {
+//Start AnchorScroll --> Top
+
+function AnchorScrollTop(obj, point, visibleStart, time) {
 	if (!obj) return;
 	this.obj = obj;
-	this.scrollTime = 5;
-	this.obj.addEventListener("click", this.computeProps.bind(this));
-};
-
-AnchorScroll.prototype = new HeaderListScroll;
-
-AnchorScroll.prototype.computeProps = function() {
-	var allBlocks = document.querySelectorAll(".block"),
-		position;
-	for (var i = 0; i < allBlocks.length; i++) {
-		if (allBlocks[i].dataset.name == "About Me") {
-			position = getPosition(allBlocks[i]);
-			this.scrollingTo(position.y);
-			return;
-		};
-	};
-};
-
-new AnchorScroll(document.querySelector(".anchor"));
-
-//End AnchorScroll
-//Start AnchorTopScroll
-
-function AnchorTopScroll(obj) {
-	if (!obj) return;
-	this.obj = obj;
-	this.obj.addEventListener("click", this.scrollToTop.bind(this));
+	this.point = point;
+	this.scrollTime = time;
+	this.visibleStart = visibleStart;
+	this.obj.addEventListener("click", this.callComputeProps.bind(this));
 	window.addEventListener("scroll", this.makeVisible.bind(this));
 };
 
-AnchorTopScroll.prototype.scrollToTop = function() {
-	window.scrollTo(0, 0);
-};
+AnchorScrollTop.prototype = new PageScroll; //inherit from MainConstructor
 
-AnchorTopScroll.prototype.makeVisible = function() {
-	var allBlocks = document.querySelectorAll(".block"),
-		position;
-	for (var i = 0; i < allBlocks.length; i++) {
-		if (allBlocks[i].dataset.name == "About Me") {
-			position = getPosition(allBlocks[i]).y;
-		};
-	};
-	if (position <= 5) {
+AnchorScrollTop.prototype.makeVisible = function() {
+	var point = this.computeProps(this.visibleStart);
+	if (point <= 5) {
 		this.obj.style.display = "inline-block";
 	} else {
 		this.obj.style.display = "none";
 	};
 };
 
-new AnchorTopScroll(document.querySelector(".anchor--scroll-top"));
+new AnchorScrollTop(document.querySelector(".anchor--scroll-top"), "Home", "About Me", 1);
 
-//End AnchorTopScroll
+//End AnchorScroll --> Top
 
 // Helper function to get an element's exact position
 function getPosition(el) {
