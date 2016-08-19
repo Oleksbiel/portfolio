@@ -38,6 +38,7 @@
     }
     &__list {
         margin: 7px 0;
+        display: block;
     }
     &__item {
         display: inline-block;
@@ -52,6 +53,67 @@
         &:hover {
             color: #F05F40;
             transition: all .5s;
+        }
+    }
+    &__hamburger.hamburger {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        &__title {
+            color: #fff;
+            letter-spacing: 3px;
+            padding: 10px 30px;
+            border: 5px solid #fff;
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        &__description {
+            color: #fff;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        &__list {
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: 54px;
+            left: 0;
+            right: 0;
+            background: rgba(84, 84, 84, 0.7);
+            margin: 0;
+        }
+        &__item {
+            display: block;
+            text-align: center;
+            &:hover {
+                background: rgba(84, 84, 84, 0.8);
+            }
+        }
+        &__link {
+            display: block;
+            padding: 10px 0;
+            &:hover {
+                color: #F05F40;
+                transition: all .5s;
+            }
+        }
+        &__hamburger.hamburger {
+            display: inline-block;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        &__list {
+            display: block !important;
         }
     }
 }

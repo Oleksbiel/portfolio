@@ -23,6 +23,6 @@ $(document).ready(function() {
       });
     }
 	$('.hamburger').click(function(){
-		$('.header__nav-burger').slideToggle(1000);
+		$('.header__list').slideToggle(1000);
 	});
 });
